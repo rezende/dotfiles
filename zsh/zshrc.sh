@@ -7,19 +7,19 @@
 	git config --global push.default current
 
 # Aliases
-	alias v="vim -p"
+	alias v="nvim"
 	mkdir -p /tmp/log
 	
 	# This is currently causing problems (fails when you run it anywhere that isn't a git project's root directory)
 	# alias vs="v `git status --porcelain | sed -ne 's/^ M //p'`"
 
 # Settings
-	export VISUAL=vim
+	export VISUAL=nvim
 
 source ~/dotfiles/zsh/plugins/fixls.zsh
 
 #Functions
-	# Loop a command and show the output in vim
+	# Loop a command and show the output in nvim
 	loop() {
 		echo ":cq to quit\n" > /tmp/log/output 
 		fc -ln -1 > /tmp/log/program
@@ -27,7 +27,7 @@ source ~/dotfiles/zsh/plugins/fixls.zsh
 			cat /tmp/log/program >> /tmp/log/output ;
 			$(cat /tmp/log/program) |& tee -a /tmp/log/output ;
 			echo '\n' >> /tmp/log/output
-			vim + /tmp/log/output || break;
+			nvim + /tmp/log/output || break;
 			rm -rf /tmp/log/output
 		done;
 	}
