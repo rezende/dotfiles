@@ -32,11 +32,11 @@
 	bindkey "^v" edit_and_run
 
 # Enter
-	function enter_line() {
-		zle accept-line
-	}
-	zle -N enter_line
-	bindkey "^o" enter_line
+	# function enter_line() {
+	# 	zle accept-line
+	# }
+	# zle -N enter_line
+	# bindkey "^o" enter_line
 
 # Sudo
 	function add_sudo() {
