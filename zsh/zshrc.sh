@@ -43,9 +43,7 @@ chpwd() ls
 
 autoload -U compinit
 
-plugins=(
-	docker
-)
+plugins=(git)
 
 for plugin ($plugins); do
     fpath=(~/dotfiles/zsh/plugins/oh-my-zsh/plugins/$plugin $fpath)
@@ -60,6 +58,7 @@ source ~/dotfiles/zsh/plugins/vi-mode.plugin.zsh
 source ~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/dotfiles/zsh/keybindings.sh
+source ~/dotfiles/zsh/plugins/oh-my-zsh/plugins/git/git.plugin.zsh
 
 # Fix for arrow-key searching
 # start typing + [Up-Arrow] - fuzzy find history forward
@@ -78,4 +77,7 @@ fi
 source ~/dotfiles/zsh/prompt.sh
 export PATH=$PATH:$HOME/dotfiles/utils
 
-source ~/dotfiles/zsh/lockbook.sh
+# source ~/dotfiles/zsh/lockbook.sh
+
+
+eval "$(direnv hook zsh)"
